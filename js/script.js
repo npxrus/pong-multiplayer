@@ -1,3 +1,5 @@
+const socket = io('http://localhost:3000');
+
 // Canvas
 const canvas = document.createElement('canvas');
 const context = canvas.getContext('2d');

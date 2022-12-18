@@ -1,0 +1,22 @@
+{
+  "name": "pong-multiplayer",
+  "version": "1.0.0",
+  "description": "Мультиплеерная игра Пинг-Понг",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/npxrus/pong-multiplayer.git"
+  },
+  "author": "Евгений Миронов (@npxrus)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/npxrus/pong-multiplayer/issues"
+  },
+  "homepage": "https://github.com/npxrus/pong-multiplayer#readme",
+  "dependencies": {
+    "socket.io": "^4.5.4"
+  }
+}
