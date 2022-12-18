@@ -25,7 +25,6 @@ let ballDirection = 1;
 // Скорость
 let speedY = 2;
 let speedX = 0;
-let computerSpeed = 4;
 
 // Счёт
 let score = [0, 0];
@@ -40,16 +39,16 @@ function createCanvas() {
 }
 
 // Ожидаем соперника
-// function renderIntro() {
-//   // Фон Canvas
-//   context.fillStyle = 'black';
-//   context.fillRect(0, 0, width, height);
+function renderIntro() {
+  // Фон Canvas
+  context.fillStyle = 'black';
+  context.fillRect(0, 0, width, height);
 
-//   // Текст
-//   context.fillStyle = 'white';
-//   context.font = "32px Courier New";
-//   context.fillText("Ждём соперника...", 20, (canvas.height / 2) - 30);
-// }
+  // Текст
+  context.fillStyle = 'white';
+  context.font = '32px Courier New';
+  context.fillText('Ждём соперника...', 20, canvas.height / 2 - 30);
+}
 
 // Отрисовываем Canvas
 function renderCanvas() {
@@ -148,35 +147,14 @@ function ballBoundaries() {
       trajectoryX[1] = ballX - (paddleX[1] + paddleDiff);
       speedX = trajectoryX[1] * 0.3;
     } else {
-      // Сброс мяча
-      if (computerSpeed < 6) {
-        computerSpeed += 0.5;
-      }
       ballReset();
       score[0]++;
     }
   }
 }
 
-// AI компьютера
-function computerAI() {
-  if (playerMoved) {
-    if (paddleX[1] + paddleDiff < ballX) {
-      paddleX[1] += computerSpeed;
-    } else {
-      paddleX[1] -= computerSpeed;
-    }
-    if (paddleX[1] < 0) {
-      paddleX[1] = 0;
-    } else if (paddleX[1] > width - paddleWidth) {
-      paddleX[1] = width - paddleWidth;
-    }
-  }
-}
-
 // Анимация каждого кадра
 function animate() {
-  computerAI();
   ballMove();
   renderCanvas();
   ballBoundaries();
@@ -186,7 +164,7 @@ function animate() {
 // Старт игры и общий сброс
 function startGame() {
   createCanvas();
-  // renderIntro();
+  renderIntro();
 
   paddleIndex = 0;
   window.requestAnimationFrame(animate);
